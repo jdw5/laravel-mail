@@ -15,6 +15,13 @@ class MailChimpNewsletter implements NewsletterContract
     }
     public function subscribe($listId, $email, $mergeVars = [])
     {
-        # code...
+        try {
+            $this->client->lists->subscribe($listId, [
+                'email' => $email
+            ], $mergeVars);
+        }
+        catch (MailChimpListAlreadySubscribed $e) {
+
+        }
     }
 }

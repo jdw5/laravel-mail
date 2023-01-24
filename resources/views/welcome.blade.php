@@ -27,6 +27,11 @@
                 Email
             </label>
             <input type="text" placeholder="you@email.com" name="email" id="email">
+            @if ($errors->has('email'))
+                <div class="error">
+                    {{ $errors->first('email') }}
+                </div>
+            @endif
             <button class="px-4 bg-blue-500" type="submit">
                 Sign up
             </button>
